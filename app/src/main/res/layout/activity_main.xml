@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_centerInParent="true">
+
+
+        <LinearLayout
+            android:id="@+id/live_data_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/live_data_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="text">
+            </TextView>
+
+            <Button
+                android:id="@+id/liveDataButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="live data"></Button>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/state_flow_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            >
+            <TextView
+                android:id="@+id/state_flow_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="text"></TextView>
+
+            <Button
+                android:id="@+id/stateFlowButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="state flow"></Button>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/flow_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            >
+            <TextView
+                android:id="@+id/flow_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="text"></TextView>
+
+            <Button
+                android:id="@+id/flow_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="flow"></Button>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/shared_flow_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            >
+            <TextView
+                android:id="@+id/shared_flow_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="text"></TextView>
+
+            <Button
+                android:id="@+id/shared_flow_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="shared flow"></Button>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
