@@ -1,5 +1,6 @@
 package com.app.observablestudy
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -14,17 +15,61 @@ import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
+    //region decalaration
     val studyViewModel by viewModels<StudyViewModel>()
     lateinit var mainBinding: ActivityMainBinding
+    //endregion
 
+
+    //region lifecyle
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mainBinding.root)
         initListener()
         observeData()
+        Log.d("life_cycle_method","on_create")
     }
 
+    override fun onRestart() {
+        super.onRestart()
+        Log.d("life_cycle_method","on_restart")
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.d("life_cycle_method","on_start")
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("life_cycle_method","on_resume")
+
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d("life_cycle_method","on_pause")
+
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d("life_cycle_method","on_stop")
+
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("life_cycle_method","on_destroy")
+    }
+
+
+    //endregion
+
+
+    //region methods
     private fun initListener() {
         mainBinding?.liveDataButton?.setOnClickListener {
             studyViewModel.triggerLiveData()
@@ -46,6 +91,11 @@ class MainActivity : AppCompatActivity() {
                     Log.d("flow", "updated")
                 }
             }
+        }
+
+        mainBinding?.nextButton?.setOnClickListener {
+            val mIntent = Intent(this,SecondActivity::class.java)
+            startActivity(mIntent)
         }
     }
 
@@ -76,5 +126,5 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
-
+    //endregion
 }

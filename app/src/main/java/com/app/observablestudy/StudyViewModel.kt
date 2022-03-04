@@ -20,9 +20,7 @@ class StudyViewModel : ViewModel() {
     val sharedFlow = _sharedFlow.asSharedFlow()
 
     fun triggerLiveData() {
-
         mLivedata.postValue("live data")
-
     }
 
 
