@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.app.observablestudy">
 
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"></uses-permission>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,11 +12,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ObservableStudy">
+
+        <service android:name=".Services.BackgroundServices" />
+        <service android:name=".Services.ForegroundService" />
+        <service android:name=".Services.MediaPlayerService" />
+
         <activity
-            android:name=".SecondActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
+            android:name=".Ui.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,6 +26,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".ServiceActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".Ui.ScopeFunctions"
+            android:exported="false" />
+
+        <receiver
+            android:name=".BroadcastReceiver.RebootBroadcastReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

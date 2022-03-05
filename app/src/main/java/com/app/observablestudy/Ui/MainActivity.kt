@@ -1,13 +1,14 @@
-package com.app.observablestudy
+package com.app.observablestudy.Ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
+import com.app.observablestudy.ServiceActivity
+import com.app.observablestudy.StudyViewModel
 import com.app.observablestudy.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.flow.collectLatest
@@ -15,7 +16,7 @@ import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
-    //region decalaration
+    //region declaration
     val studyViewModel by viewModels<StudyViewModel>()
     lateinit var mainBinding: ActivityMainBinding
     //endregion
@@ -28,41 +29,49 @@ class MainActivity : AppCompatActivity() {
         setContentView(mainBinding.root)
         initListener()
         observeData()
-        Log.d("life_cycle_method","on_create")
+        Log.d("life_cycle_method", "on_create")
+
+
+        //for testing
+        val mIntent = Intent(this, ScopeFunctions::class.java)
+        startActivity(mIntent)
     }
+
+
+
 
     override fun onRestart() {
         super.onRestart()
-        Log.d("life_cycle_method","on_restart")
+        Log.d("life_cycle_method", "on_restart")
     }
 
     override fun onStart() {
         super.onStart()
-        Log.d("life_cycle_method","on_start")
+        Log.d("life_cycle_method", "on_start")
 
     }
 
     override fun onResume() {
         super.onResume()
-        Log.d("life_cycle_method","on_resume")
+        Log.d("life_cycle_method", "on_resume")
 
     }
 
     override fun onPause() {
         super.onPause()
-        Log.d("life_cycle_method","on_pause")
+        Log.d("life_cycle_method", "on_pause")
 
     }
 
     override fun onStop() {
         super.onStop()
-        Log.d("life_cycle_method","on_stop")
+        Log.d("life_cycle_method", "on_stop")
 
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.d("life_cycle_method","on_destroy")
+        Log.d("life_cycle_method", "on_destroy")
     }
 
 
@@ -94,7 +103,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         mainBinding?.nextButton?.setOnClickListener {
-            val mIntent = Intent(this,SecondActivity::class.java)
+            val mIntent = Intent(this, ServiceActivity::class.java)
+            startActivity(mIntent)
+        }
+
+        mainBinding?.scopeFunctionButton?.setOnClickListener {
+            val mIntent = Intent(this, ScopeFunctions::class.java)
             startActivity(mIntent)
         }
     }
@@ -119,12 +133,11 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope?.launchWhenStarted {
             studyViewModel?.sharedFlow?.collectLatest {
                 mainBinding?.sharedFlowTv?.setText(it)
-                Snackbar.make(mainBinding.root,it,Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(mainBinding.root, it, Snackbar.LENGTH_SHORT).show()
                 Log.d("shared_flow", "updated")
 
             }
         }
-
     }
     //endregion
 }
