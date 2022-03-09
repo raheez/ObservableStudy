@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.app.observablestudy.R
+import com.app.observablestudy.TestClass.Bike
+import com.app.observablestudy.TestClass.Engine
 import com.app.observablestudy.TestClass.Person
 
 class ScopeFunctionsActivity : AppCompatActivity() {
@@ -13,7 +15,32 @@ class ScopeFunctionsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scope_functions)
-        testScopeFunctions()
+        //testScopeFunctions()
+        testDataClass()
+    }
+
+    private fun testDataClass() {
+
+        val mCBR1 = Bike("CBR")
+        val mCBR2 = Bike("CBR")
+
+        val mAMG1 = Engine("AMG")
+        val mAMG2 = Engine("AMG")
+
+         if (mCBR1.equals(mCBR2))
+         {
+             Log.d("data_class_bool_val","true")
+         }else{
+             Log.d("data_class_bool_val","false")
+         }
+
+         if (mAMG1.equals(mAMG2))
+         {
+             Log.d("class_bool_val","true")
+         }else{
+             Log.d("class_bool_val","false")
+         }
+
     }
 
     private fun testScopeFunctions() {
@@ -22,19 +49,19 @@ class ScopeFunctionsActivity : AppCompatActivity() {
         testApplyFunction()
         testRunFunciton()
         testWithFunciton()
-        
+
     }
 
     private fun testWithFunciton() {
 
-        var mPerson : Person?=null
+        var mPerson: Person? = null
 //        var mPerson = Person()
 
         with(mPerson) {
             this?.name = "gautham"
             this?.age = 26
             this?.address = "palakkad"
-            Log.d("person_details","with_scope-->\n")
+            Log.d("person_details", "with_scope-->\n")
             mPerson?.displayDetails()
 
         }
@@ -42,13 +69,13 @@ class ScopeFunctionsActivity : AppCompatActivity() {
     }
 
     private fun testRunFunciton() {
-        var mPerson : Person?=null
+        var mPerson: Person? = null
         mPerson?.run {
             name = "ajas"
             age = 35
             address = "kochi"
-            Log.d("run scope","display details")
-            Log.d("person_details","run_scope-->\n")
+            Log.d("run scope", "display details")
+            Log.d("person_details", "run_scope-->\n")
             this.displayDetails()
         }
 
