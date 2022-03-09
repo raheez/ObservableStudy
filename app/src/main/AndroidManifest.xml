@@ -32,7 +32,7 @@
             android:exported="false" />
 
         <activity
-            android:name=".Ui.ScopeFunctions"
+            android:name=".Ui.ScopeFunctionsActivity"
             android:exported="false" />
 
         <receiver

@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 
 
         //for testing
-        val mIntent = Intent(this, ScopeFunctions::class.java)
+        val mIntent = Intent(this, ScopeFunctionsActivity::class.java)
         startActivity(mIntent)
     }
 
@@ -108,7 +108,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         mainBinding?.scopeFunctionButton?.setOnClickListener {
-            val mIntent = Intent(this, ScopeFunctions::class.java)
+            val mIntent = Intent(this, ScopeFunctionsActivity::class.java)
             startActivity(mIntent)
         }
     }

@@ -12,7 +12,7 @@ class RebootBroadcastReceiver: BroadcastReceiver() {
         if (Intent.ACTION_BOOT_COMPLETED.equals(intent?.action)){
             val mIntent = Intent(context,ForegroundService::class.java)
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                context?.startForegroundService(mIntent)
+               // context?.startForegroundService(mIntent)
                 Toast.makeText(context,"reboot received",Toast.LENGTH_SHORT).show()
             }
         }
