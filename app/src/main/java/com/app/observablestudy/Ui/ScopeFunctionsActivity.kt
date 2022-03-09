@@ -5,43 +5,43 @@ import android.os.Bundle
 import android.util.Log
 import com.app.observablestudy.R
 import com.app.observablestudy.TestClass.Bike
+import com.app.observablestudy.TestClass.Dog
 import com.app.observablestudy.TestClass.Engine
 import com.app.observablestudy.TestClass.Person
 
 class ScopeFunctionsActivity : AppCompatActivity() {
+
+    companion object {
+        const val NAME = "ryan"
+        fun getName(): String {
+            return "hi"
+        }
+    }
 
     private var i = 2
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scope_functions)
-        //testScopeFunctions()
-        testDataClass()
+        testClassInitialisation()
+        testInheritance()
     }
 
-    private fun testDataClass() {
+    private fun testInheritance() {
 
-        val mCBR1 = Bike("CBR")
-        val mCBR2 = Bike("CBR")
-
-        val mAMG1 = Engine("AMG")
-        val mAMG2 = Engine("AMG")
-
-         if (mCBR1.equals(mCBR2))
-         {
-             Log.d("data_class_bool_val","true")
-         }else{
-             Log.d("data_class_bool_val","false")
-         }
-
-         if (mAMG1.equals(mAMG2))
-         {
-             Log.d("class_bool_val","true")
-         }else{
-             Log.d("class_bool_val","false")
-         }
+        val mDog = Dog()
 
     }
+
+    private fun testClassInitialisation() {
+        val mEngine = Engine("1000cc")
+        mEngine.engineType
+
+        val mBenzEngine = Engine("3000",6)
+        mBenzEngine.xyz
+        Log.d("override",""+mBenzEngine.xyz)
+    }
+
 
     private fun testScopeFunctions() {
         testLetFunction()
@@ -123,5 +123,37 @@ class ScopeFunctionsActivity : AppCompatActivity() {
         }
     }
 
-    private fun getSquaredi() = (i * i).also { i++ }
+
+    private fun testDataClass() {
+
+        val mCBR1 = Bike("CBR")
+        val mCBR2 = Bike("CBR")
+
+        val mAMG1 = Engine("AMG")
+        val mAMG2 = Engine("AMG")
+
+        if (mCBR1.equals(mCBR2)) {
+            Log.d("data_class_bool_val", "true")
+        } else {
+            Log.d("data_class_bool_val", "false")
+        }
+
+        if (mAMG1.equals(mAMG2)) {
+            Log.d("class_bool_val", "true")
+        } else {
+            Log.d("class_bool_val", "false")
+        }
+    }
+
+    //functions as expression
+    fun getMax(a:Int,b:Int):Int = if (a>b) {
+        Log.d("a","is higher")
+        a
+    } else {
+        Log.d("b","is higher")
+        b
+    }
+
+
+    fun getSquaredi() = (i * i).also { i++ }
 }

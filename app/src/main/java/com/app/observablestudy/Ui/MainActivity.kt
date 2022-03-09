@@ -30,11 +30,6 @@ class MainActivity : AppCompatActivity() {
         initListener()
         observeData()
         Log.d("life_cycle_method", "on_create")
-
-
-        //for testing
-        val mIntent = Intent(this, ScopeFunctionsActivity::class.java)
-        startActivity(mIntent)
     }
 
 
