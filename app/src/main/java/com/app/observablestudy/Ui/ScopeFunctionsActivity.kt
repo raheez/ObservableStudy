@@ -24,7 +24,7 @@ class ScopeFunctionsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scope_functions)
         testClassInitialisation()
-        testInheritance()
+        testExtensionFunction()
     }
 
     private fun testInheritance() {
@@ -33,17 +33,36 @@ class ScopeFunctionsActivity : AppCompatActivity() {
 
     }
 
+    private fun testExtensionFunction() {
+        var mDog = Dog()
+        mDog.mColor = "red"
+        var mColor = "red"
+
+        Log.d("extension_function", "" + mDog.getColorBreed(mDog.mColor))
+        Log.d("infix_function", " extension ${mDog getColorBreed mColor}")
+        Log.d("infix_function", " member ${mDog getColor  mColor}")
+    }
+
+     fun Dog.getBreed(): String {
+        return "huskey"
+    }
+
+    infix fun Dog.getColorBreed(color: String): String { //for making an infix function just add infix keyword and only 1 parameter should be present
+        return "${color} huskey"
+    }
+
+
     private fun testClassInitialisation() {
         val mEngine = Engine("1000cc")
         mEngine.engineType
 
-        val mBenzEngine = Engine("3000",6)
+        val mBenzEngine = Engine("3000", 6)
         mBenzEngine.xyz
-        Log.d("override",""+mBenzEngine.xyz)
+        Log.d("override", "" + mBenzEngine.xyz)
     }
 
 
-    private fun testScopeFunctions() {
+     private fun testScopeFunctions() {
         testLetFunction()
         testAlsoFunction()
         testApplyFunction()
@@ -146,14 +165,15 @@ class ScopeFunctionsActivity : AppCompatActivity() {
     }
 
     //functions as expression
-    fun getMax(a:Int,b:Int):Int = if (a>b) {
-        Log.d("a","is higher")
+    fun getMax(a: Int, b: Int): Int = if (a > b) {
+        Log.d("a", "is higher")
         a
     } else {
-        Log.d("b","is higher")
+        Log.d("b", "is higher")
         b
     }
 
 
     fun getSquaredi() = (i * i).also { i++ }
 }
+
