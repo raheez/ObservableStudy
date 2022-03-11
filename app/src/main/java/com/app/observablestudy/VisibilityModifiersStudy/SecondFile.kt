@@ -10,10 +10,9 @@ open class FirstClass {
 }
 
 class SecondClass : FirstClass() {
-
-
     val test_a = a // a is accessible          // internal is accessible within same module
     //val test_b = b //b is not accessible    // private is not accessible in derived class
     val test_c = c //c is accessible        // is visible in derived class
     val test_d = d //b is accessible        // public is accessible within the project
 }
+

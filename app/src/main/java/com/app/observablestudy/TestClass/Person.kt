@@ -4,7 +4,7 @@ import android.util.Log
 
 open class Person {
 
-    var name = "ran"
+    open var name = "ran"
     var age = 29
     var address = "al karama"
     open var xyz = "al karama"

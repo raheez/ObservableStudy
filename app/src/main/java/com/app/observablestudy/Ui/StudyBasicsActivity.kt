@@ -4,12 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.app.observablestudy.R
-import com.app.observablestudy.TestClass.Bike
-import com.app.observablestudy.TestClass.Dog
-import com.app.observablestudy.TestClass.Engine
-import com.app.observablestudy.TestClass.Person
+import com.app.observablestudy.TestClass.*
 
-class ScopeFunctionsActivity : AppCompatActivity() {
+class StudyBasicsActivity : AppCompatActivity() {
 
     companion object {
         const val NAME = "ryan"
@@ -23,14 +20,27 @@ class ScopeFunctionsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scope_functions)
-        testClassInitialisation()
-        testExtensionFunction()
+        testInterface()
+    }
+
+    private fun testInterface() {
+
+        val mR1 = CustomButton()
+        mR1.name = "yamaha R1"
+        mR1.onClick()
     }
 
     private fun testInheritance() {
+        val mR1 = Engine("100cc")
+        mR1.name = "yamaha R1" //since name is open property it can be overriden in subclass
+        mR1.address = "xyz" // since address is not open it is not overriden in subclass, but still it can be access since its superclass property.
+    }
 
-        val mDog = Dog()
-
+    private fun testAbstractClass() {
+        //val mDog = AbstractAnimal() //cannot create instance of abstract class
+        var mDog = TestAnimal()
+        mDog.mName = "syberian huskey" // can access parent class object because of inheritance
+        mDog.testOpenMethod()
     }
 
     private fun testExtensionFunction() {

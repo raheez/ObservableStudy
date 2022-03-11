@@ -1,4 +1,4 @@
-package com.app.observablestudy
+package com.app.observablestudy.ViewModel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

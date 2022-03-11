@@ -28,11 +28,11 @@
         </activity>
 
         <activity
-            android:name=".ServiceActivity"
+            android:name=".Ui.ServiceActivity"
             android:exported="false" />
 
         <activity
-            android:name=".Ui.ScopeFunctionsActivity"
+            android:name=".Ui.StudyBasicsActivity"
             android:exported="false" />
 
         <receiver

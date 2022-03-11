@@ -1,4 +1,4 @@
-package com.app.observablestudy.TestClass
+package com.app.observablestudy.VisibilityModifiersStudy
 
 
 internal val a = 20

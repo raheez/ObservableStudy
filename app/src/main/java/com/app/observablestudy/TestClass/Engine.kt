@@ -18,6 +18,7 @@ class Engine (var engineType :String) : Person()  {
         mCylinderCount = _cylinderCount
     }
 
+    override var name = ""
 
 
 

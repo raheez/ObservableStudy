@@ -7,8 +7,7 @@ import android.util.Log
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
-import com.app.observablestudy.ServiceActivity
-import com.app.observablestudy.StudyViewModel
+import com.app.observablestudy.ViewModel.StudyViewModel
 import com.app.observablestudy.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.flow.collectLatest
@@ -102,8 +101,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(mIntent)
         }
 
-        mainBinding?.scopeFunctionButton?.setOnClickListener {
-            val mIntent = Intent(this, ScopeFunctionsActivity::class.java)
+        mainBinding?.studyBasicsButton?.setOnClickListener {
+            val mIntent = Intent(this, StudyBasicsActivity::class.java)
             startActivity(mIntent)
         }
     }

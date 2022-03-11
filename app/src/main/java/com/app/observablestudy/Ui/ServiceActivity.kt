@@ -1,4 +1,4 @@
-package com.app.observablestudy
+package com.app.observablestudy.Ui
 
 import android.app.ActivityManager
 import android.content.Context
@@ -7,7 +7,6 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import androidx.core.content.getSystemService
 import com.app.observablestudy.Services.BackgroundServices
 import com.app.observablestudy.Services.ForegroundService
 import com.app.observablestudy.Services.MediaPlayerService
