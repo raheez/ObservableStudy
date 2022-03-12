@@ -6,6 +6,8 @@ import android.util.Log
 import com.app.observablestudy.R
 import com.app.observablestudy.TestClass.*
 
+
+
 class StudyBasicsActivity : AppCompatActivity() {
 
     companion object {
@@ -19,12 +21,11 @@ class StudyBasicsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_scope_functions)
+        setContentView(R.layout.activity_study_basics)
         testInterface()
     }
 
     private fun testInterface() {
-
         val mR1 = CustomButton()
         mR1.name = "yamaha R1"
         mR1.onClick()
