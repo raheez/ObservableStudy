@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.app.observablestudy">
 
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"></uses-permission>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
@@ -12,6 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ObservableStudy">
+        <activity
+            android:name=".Ui.RecyclerActivity"
+            android:exported="false" />
 
         <service android:name=".Services.BackgroundServices" />
         <service android:name=".Services.ForegroundService" />
@@ -26,11 +29,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".Ui.ServiceActivity"
             android:exported="false" />
-
         <activity
             android:name=".Ui.StudyBasicsActivity"
             android:exported="false" />

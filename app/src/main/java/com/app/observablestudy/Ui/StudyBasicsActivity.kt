@@ -5,7 +5,8 @@ import android.os.Bundle
 import android.util.Log
 import com.app.observablestudy.R
 import com.app.observablestudy.TestClass.*
-
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class StudyBasicsActivity : AppCompatActivity() {
@@ -22,7 +23,7 @@ class StudyBasicsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_study_basics)
-        testInterface()
+        testCollections()
     }
 
     private fun testInterface() {
@@ -34,7 +35,8 @@ class StudyBasicsActivity : AppCompatActivity() {
     private fun testInheritance() {
         val mR1 = Engine("100cc")
         mR1.name = "yamaha R1" //since name is open property it can be overriden in subclass
-        mR1.address = "xyz" // since address is not open it is not overriden in subclass, but still it can be access since its superclass property.
+        mR1.address =
+            "xyz" // since address is not open it is not overriden in subclass, but still it can be access since its superclass property.
     }
 
     private fun testAbstractClass() {
@@ -51,10 +53,10 @@ class StudyBasicsActivity : AppCompatActivity() {
 
         Log.d("extension_function", "" + mDog.getColorBreed(mDog.mColor))
         Log.d("infix_function", " extension ${mDog getColorBreed mColor}")
-        Log.d("infix_function", " member ${mDog getColor  mColor}")
+        Log.d("infix_function", " member ${mDog getColor mColor}")
     }
 
-     fun Dog.getBreed(): String {
+    fun Dog.getBreed(): String {
         return "huskey"
     }
 
@@ -73,7 +75,7 @@ class StudyBasicsActivity : AppCompatActivity() {
     }
 
 
-     private fun testScopeFunctions() {
+    private fun testScopeFunctions() {
         testLetFunction()
         testAlsoFunction()
         testApplyFunction()
@@ -86,7 +88,6 @@ class StudyBasicsActivity : AppCompatActivity() {
 
         var mPerson: Person? = null
 //        var mPerson = Person()
-
         with(mPerson) {
             this?.name = "gautham"
             this?.age = 26
@@ -155,7 +156,6 @@ class StudyBasicsActivity : AppCompatActivity() {
 
 
     private fun testDataClass() {
-
         val mCBR1 = Bike("CBR")
         val mCBR2 = Bike("CBR")
 
@@ -185,6 +185,134 @@ class StudyBasicsActivity : AppCompatActivity() {
     }
 
 
-    fun getSquaredi() = (i * i).also { i++ }
+    fun getSquaredi() = (i * i).also {
+        i++
+    }
+
+
+    //region array
+
+    fun testCollections() {
+//        testArray()
+//        testMutabaleAndImmutable()
+//        testMutabaleAndImmutableHashMap()
+//        testMutabaleAndImmutableSet()
+        testArrayListAndVectors()
+
+    }
+
+    private fun testArrayListAndVectors() {
+
+        val mArrayList = ArrayList<String>()
+        mArrayList.add("hello")
+        mArrayList.add("hi")
+        mArrayList.add("how")
+        mArrayList.add("are")
+        mArrayList.add("you")
+
+        val mIterator = mArrayList.iterator()
+        while (mIterator.hasNext()){
+            Log.d("mArrayList",""+mIterator.next())
+        }
+
+
+        val mVectorList = Vector<String>()
+        mVectorList.add("i")
+        mVectorList.add("am")
+        mVectorList.add("fine")
+        mVectorList.add("deaar")
+
+        val mIteratorVector = mVectorList.iterator()
+        while (mIteratorVector.hasNext()){
+            Log.d("mVectorList",""+mIteratorVector.next())
+        }
+    }
+
+    private fun testMutabaleAndImmutableHashMap() {
+        var mImmutableHashMap = mapOf<String, String>("a" to "b", "c" to "d", "e" to "f") //immutable and fixed size
+        for (element in mImmutableHashMap){
+            Log.d("mImmutable_Hash_map",""+element.key)
+        }
+
+        var mMutableMap = mutableMapOf<String,String>()//mutable and non-fixed size
+        mMutableMap.put("a","b_m")
+        mMutableMap.put("c","d_m")
+        mMutableMap.put("e","f_m")
+        mMutableMap.put("g","h_m")
+        for (element in mMutableMap){
+            Log.d("mutable_Hash_map",""+element.value)
+        }
+    }
+
+    private fun testMutabaleAndImmutableSet() {
+        //Set ->unique elements
+
+        var mImmutableSet = setOf<Int>(1,2,3,22,10,9,2,22) //mutable
+        for (element in mImmutableSet){
+//            Log.d("mImmutable_Set",""+element)
+        }
+
+        var mMutableSet = mutableSetOf<Int>() //mutable
+        mMutableSet.add(2)
+        mMutableSet.add(3)
+        mMutableSet.add(4)
+        mMutableSet.add(9)
+        mMutableSet.add(9)
+        mMutableSet.add(20)
+
+        mMutableSet.remove(3)
+        for (element in mMutableSet){
+//            Log.d("mutable_Set",""+element)
+        }
+
+
+        //HashSet -> order of elements is not garunteed.
+
+        var mMutableHashSet = hashSetOf<Int>() //mutable
+        mMutableHashSet.add(2)
+        mMutableHashSet.add(311)
+        mMutableHashSet.add(430)
+        mMutableHashSet.add(9)
+        mMutableHashSet.add(9)
+        mMutableHashSet.add(30)
+        mMutableHashSet.add(231)
+        mMutableHashSet.add(25)
+        mMutableHashSet.add(23)
+        for (element in mMutableHashSet){
+            Log.d("mutable_Hash_set",""+element)
+        }
+
+    }
+
+    private fun testMutabaleAndImmutable() {
+        var mImmutableList = listOf<String>("muhammed", "raheez", "rahman") // immutable,fixed size
+        for (element in mImmutableList) {
+            Log.d("array_elements", " " + element)
+        }
+
+
+        var mMutableList = mutableListOf<String>()
+        mMutableList.add("muhammed")
+        mMutableList.add("raheez")
+        mMutableList.add("rahman")
+
+        mMutableList.set(1, "ran")
+        for (element in mMutableList) {
+            Log.d("array_elements", " " + element)
+        }
+
+    }
+
+    fun testArray() {
+
+        var mArray = Array<Int>(5) { 0 }
+
+
+        for (elements in mArray) {
+            //Log.d("array_elements"," "+elements.toString())
+            println(elements.toString())
+        }
+    }
+
 }
 

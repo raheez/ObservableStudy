@@ -16,6 +16,24 @@
 
 
         <LinearLayout
+            android:id="@+id/recycler_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+
+            <Button
+                android:id="@+id/recyclerButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:text="recycler view"></Button>
+
+        </LinearLayout>
+
+
+        <LinearLayout
             android:id="@+id/live_data_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

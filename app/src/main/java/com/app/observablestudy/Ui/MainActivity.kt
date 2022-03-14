@@ -74,6 +74,11 @@ class MainActivity : AppCompatActivity() {
 
     //region methods
     private fun initListener() {
+        mainBinding?.recyclerButton?.setOnClickListener {
+            val mIntent = Intent(this, RecyclerActivity::class.java)
+            startActivity(mIntent)
+        }
+
         mainBinding?.liveDataButton?.setOnClickListener {
             studyViewModel.triggerLiveData()
 
