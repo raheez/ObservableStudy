@@ -78,6 +78,10 @@ class MainActivity : AppCompatActivity() {
             val mIntent = Intent(this, RecyclerActivity::class.java)
             startActivity(mIntent)
         }
+        mainBinding?.fragmentButton?.setOnClickListener {
+            val mIntent = Intent(this, FragmentActivity::class.java)
+            startActivity(mIntent)
+        }
 
         mainBinding?.liveDataButton?.setOnClickListener {
             studyViewModel.triggerLiveData()

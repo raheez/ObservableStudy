@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ObservableStudy">
         <activity
+            android:name=".Ui.FragmentActivity"
+            android:exported="false" />
+        <activity
             android:name=".Ui.RecyclerActivity"
             android:exported="false" />
 
