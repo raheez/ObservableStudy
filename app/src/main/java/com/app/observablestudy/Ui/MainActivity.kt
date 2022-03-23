@@ -74,6 +74,16 @@ class MainActivity : AppCompatActivity() {
 
     //region methods
     private fun initListener() {
+
+        mainBinding?.implicitIntent?.setOnClickListener {
+            val mIntent = Intent()
+            mIntent.apply {
+//                this.action = "com.example.corutineretorfitstudy.custom_intent"
+                this.action = Intent.ACTION_VIEW
+            }
+            startActivity(mIntent)
+        }
+
         mainBinding?.recyclerButton?.setOnClickListener {
             val mIntent = Intent(this, RecyclerActivity::class.java)
             startActivity(mIntent)

@@ -1,7 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ObservableStudy</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="study_basics">study basics</string>
-
-
+    <string name="study_basics">أساسيات الدراسة
+ </string>
 </resources>
